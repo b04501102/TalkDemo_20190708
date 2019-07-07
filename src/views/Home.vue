@@ -2,17 +2,19 @@
   .home.container-fluid
     .row
       .col-sm-8.d-flex.align-items-center.justify-content-center
-        BusinessCard(v-if='mode===0' 
-                    :name='fields.name' 
-                    :title='fields.title' 
-                    :self_introduction='fields.self_introduction' 
-                    :email='fields.email')
-        Resume(v-if='mode===1' 
-              :name='fields.name' 
-              :title='fields.title' 
-              :self_introduction='fields.self_introduction' 
-              :email='fields.email'
-              :experience='fields.experience')
+        transition(name="slide-fade" mode="out-in" @after-leave='() => this.transiting = false')
+          BusinessCard(v-if='mode===0' 
+                      :name='fields.name' 
+                      :title='fields.title' 
+                      :self_introduction='fields.self_introduction' 
+                      :email='fields.email')
+          Resume(v-if='mode===1' 
+                :name='fields.name' 
+                :image='fields.image'
+                :title='fields.title' 
+                :self_introduction='fields.self_introduction' 
+                :email='fields.email'
+                :experience='fields.experience')
       Form.col-sm-4(:fields='fields' v-model='fields')
 </template>
 
@@ -37,6 +39,7 @@ export default {
     return {
       fields: {
         name: 'Rainforest',
+        image: null,
         title: 'R&D Engineer',
         self_introduction: '喜愛寫程式、有質感的事物或用程式做出有質感的事物',
         email: 'rainforestnick@gmail.com',
@@ -58,7 +61,8 @@ export default {
           }
         ]
       },
-      mode: 0
+      mode: 0,
+      transiting: false
     }
   },
   mounted() {
@@ -66,8 +70,9 @@ export default {
   },
   methods: {
     wheelEvt(event) {
-      if(event.deltaY > 0) { this.mode = (this.mode+1) % modes.length }
-      else if(event.deltaY < 0) { this.mode = (modes.length + this.mode-1) % modes.length }
+      if(event.deltaY > 0 && !this.transiting) { this.mode = (this.mode+1) % modes.length }
+      else if(event.deltaY < 0 && !this.transiting) { this.mode = (modes.length + this.mode-1) % modes.length }
+      this.transiting = true
     }
   },
   components: {
@@ -77,3 +82,18 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+</style>
+

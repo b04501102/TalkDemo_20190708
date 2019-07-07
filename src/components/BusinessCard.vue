@@ -1,7 +1,7 @@
 <template lang="pug">
   .business_card.card.m-3
     .card-body.d-flex.flex-column.align-items-start.justify-content-center
-      .name.card-title {{ name }}
+      h2.name.card-title {{ name }}
       .title.card-subtitle {{ title }}
       .email.card-text {{ email }}
 </template>
@@ -21,5 +21,8 @@ export default {
   color: $dark;
   width: 400px;
   height: 225px;
+  .name {
+    font-family: 'Abril Fatface', cursive;
+  }
 }
 </style>

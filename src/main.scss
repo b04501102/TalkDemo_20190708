@@ -2,7 +2,13 @@ $body-bg: #222;
 $body-color: #eee;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
 
 * {
-  border: solid 1px $light;
+  // border: solid 1px $light;
 }
