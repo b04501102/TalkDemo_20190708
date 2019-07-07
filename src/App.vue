@@ -1,5 +1,8 @@
 <template lang='pug'>
   #app.container-fluid
+    #nav
+      router-link(to='/') Slides
+      router-link(to='/example') Example
     router-view
 </template>
 
