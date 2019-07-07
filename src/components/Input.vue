@@ -1,7 +1,7 @@
 <template lang="pug">
-  .custom_input
-    label(:for='id') {{ label }}
-    input(:id='id' :value='value' @input='$emit("input", $event.target.value)')
+  .custom_input.row
+    label.col(:for='id') {{ label }}
+    input.col(:id='id' :value='value' @input='$emit("input", $event.target.value)')
 </template>
 
 <script>

@@ -1,17 +1,19 @@
 <template lang='pug'>
-  .home
-    BusinessCard(v-if='mode===0' 
-                :name='fields.name' 
-                :title='fields.title' 
-                :self_introduction='fields.self_introduction' 
-                :email='fields.email')
-    Resume(v-if='mode===1' 
-          :name='fields.name' 
-          :title='fields.title' 
-          :self_introduction='fields.self_introduction' 
-          :email='fields.email'
-          :experience='fields.experience')
-    Form(:fields='fields' v-model='fields')
+  .home.container-fluid
+    .row
+      .col-sm-8.d-flex.align-items-center.justify-content-center
+        BusinessCard(v-if='mode===0' 
+                    :name='fields.name' 
+                    :title='fields.title' 
+                    :self_introduction='fields.self_introduction' 
+                    :email='fields.email')
+        Resume(v-if='mode===1' 
+              :name='fields.name' 
+              :title='fields.title' 
+              :self_introduction='fields.self_introduction' 
+              :email='fields.email'
+              :experience='fields.experience')
+      Form.col-sm-4(:fields='fields' v-model='fields')
 </template>
 
 <script>
