@@ -5,9 +5,15 @@
         h1 前端框架初探
         h3.speaker Rainforest
       section
-        h2 Co-writing & Discussion
-        img(src='https://i.imgur.com/qcf2UDx.png' width='40%')
-
+        .row
+          .col-sm-6
+            h2 Co-writing & Discussion
+            img(src='https://i.imgur.com/qcf2UDx.png' width='40%')
+          .col-sm-6
+            h2 Slides
+            a(href='rainforest.tw')
+              img(src='https://i.imgur.com/33RRfGu.png' width='40%')
+              h5 rainforest.tw
       section
         h2 前端優勢
         ul
