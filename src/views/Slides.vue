@@ -52,8 +52,13 @@
             li v-if / v-show
             li v-on
         section
-          h4 template - v-bind
-          VBIND
+          .row
+            .col-sm-6
+              h4 template - v-bind
+              VBIND
+            .col-sm-6
+              h4 template - v-model
+              VMODEL
         section
           h4 template - v-for
           VFOR
@@ -77,6 +82,7 @@
 import Reveal from 'reveal.js/js/reveal'
 
 import VBIND from '@/components/Demos/v_bind.vue'
+import VMODEL from '@/components/Demos/v_model.vue'
 import VFOR from '@/components/Demos/v_for.vue'
 import VIF from '@/components/Demos/v_if.vue'
 
@@ -97,6 +103,7 @@ export default {
   },
   components: {
     VBIND,
+    VMODEL,
     VFOR,
     VIF
   }
