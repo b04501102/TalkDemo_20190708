@@ -12,6 +12,7 @@ module.exports = {
           @import '@/../node_modules/bootstrap/scss/_functions.scss';
           @import '@/../node_modules/bootstrap/scss/_variables.scss';
           @import '@/../node_modules/bootstrap/scss/_mixins.scss';
+          @import '@/main.scss';
         `
       }
     }

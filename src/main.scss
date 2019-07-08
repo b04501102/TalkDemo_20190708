@@ -9,6 +9,17 @@ $body-color: #eee;
   height: $h;
 }
 
+@mixin inset_shadow_with_border($color) {
+  border: solid 2px $color;
+  box-shadow: 5px 5px 50px $color inset;
+}
+
 * {
   // border: solid 1px $light;
+}
+
+.demo_block {
+  font-size: 36px;
+  padding: 30px;
+  border-radius: 15px;
 }
